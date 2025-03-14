@@ -1,13 +1,12 @@
-import { IGame } from "@/types/game";
+import { IGames } from "@/types/game";
 import Image from "next/image";
-import React from "react";
 
-export default function GameCard({ game }: { game: IGame }) {
+export default function GameCard({ game }: { game: IGames }) {
   return (
     <div key={game.id} className="border rounded-xl p-5 flex gap-5 flex-col">
       <div className="relative">
         {game.isNew && (
-          <span className="absolute top-2 left-2 bg-white p-1 rounded-md">
+          <span className="absolute top-2 left-2 px-2 p-1 rounded-md text-sm bg-gray-100">
             New
           </span>
         )}

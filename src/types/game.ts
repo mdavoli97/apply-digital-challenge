@@ -1,4 +1,4 @@
-export type IGame = {
+export type IGames = {
   id: number;
   genre: string;
   image: string;
@@ -6,4 +6,11 @@ export type IGame = {
   description: string;
   price: number;
   isNew: boolean;
+};
+
+export type IGamesData = {
+  games: IGames[];
+  availableFilters: string[];
+  totalPages: number;
+  currentPage: number;
 };

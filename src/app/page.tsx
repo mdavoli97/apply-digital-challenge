@@ -1,7 +1,16 @@
+import GameCard from "@/components/game-card";
+import { fetchGames } from "@/services/fetchGames";
+
 export default async function Home() {
+  const allGames = await fetchGames();
+
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24 font-bold text-4xl text-blue-600'>
-      Hello, world!
+    <main className="container mx-auto flex flex-col min-h-screen">
+      <div className="grid max-w-7xl mx-auto grid-cols-1 md:grid-cols-3 gap-12 my-12">
+        {allGames.games?.map((game) => (
+          <GameCard key={game.id} game={game} />
+        ))}
+      </div>
     </main>
-  )
+  );
 }

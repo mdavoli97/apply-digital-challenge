@@ -1,7 +1,18 @@
+"use client";
+
+import { useCartStore } from "@/store/useCartStore";
 import { IGames } from "@/types/game";
 import Image from "next/image";
 
 export default function GameCard({ game }: { game: IGames }) {
+  const { addToCart, removeFromCart, cart } = useCartStore((state) => state);
+
+  const handleAddToCart = () => {
+    isItemInCart ? removeFromCart(game.id) : addToCart(game);
+  };
+
+  const isItemInCart = cart.some((item) => item.id === game.id);
+
   return (
     <div key={game.id} className="border rounded-xl p-5 flex gap-5 flex-col">
       <div className="relative">
@@ -25,6 +36,13 @@ export default function GameCard({ game }: { game: IGames }) {
         <p>{game.name}</p>
         <p>{game.price}</p>
       </div>
+
+      <button
+        className="border py-4 border-black rounded-lg uppercase text-sm font-bold"
+        onClick={handleAddToCart}
+      >
+        {isItemInCart ? "Remove" : "Add to cart "}
+      </button>
     </div>
   );
 }

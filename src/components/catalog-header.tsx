@@ -18,12 +18,14 @@ export default function CatalogHeader({ filters }: { filters: string[] }) {
   }
 
   return (
-    <div className="h-40 md:h-60 flex flex-col max-w-7xl mx-auto w-full py-6 md:py-12 justify-between">
-      <h1 className="font-bold text-4xl">Top Sellers</h1>
+    <div className="md:h-60 flex gap-10 flex-col max-w-7xl mx-auto w-full py-3 md:py-12 justify-between">
+      <h1 className="font-bold text-2xl text-gray-700 uppercase md:normal-case md:text-4xl">
+        Top Sellers
+      </h1>
       <div className="flex gap-5 md:self-end">
         <p className="font-bold">Genre</p>
         <div className="bg-gray-300 w-0.5" />
-        <select onChange={handleSelect} name="" id="">
+        <select onChange={handleSelect}>
           <option value="">All</option>
           {filters.map((genre) => (
             <option key={genre} value={genre}>

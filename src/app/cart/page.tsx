@@ -10,7 +10,7 @@ export default function Page() {
   const { cart } = useCartStore();
 
   return (
-    <section className="flex flex-col max-w-7xl mx-auto gap-10 p-3 py-10">
+    <section className="flex flex-col max-w-7xl mx-auto gap-10 p-5 md:py-10">
       <Link href="/" className="flex items-center gap-3">
         <Image
           src="/arrow-left-icon.svg"
@@ -21,16 +21,16 @@ export default function Page() {
         />
         Back to Catalog
       </Link>
-      <div className="flex flex-col gap-5">
-        <h1 className="font-bold text-4xl">Your Cart</h1>
+      <div className="flex flex-col gap-2 md:gap-5">
+        <h1 className="font-bold text-2xl xl:text-4xl">Your Cart</h1>
         {cart.length === 0 ? (
-          <p className="text-xl font-normal">Your cart is empty</p>
+          <p className="text-lg xl:text-xl font-normal">Your cart is empty</p>
         ) : (
-          <p className="text-xl font-normal">{cart.length} items</p>
+          <p className="text-lg xl:text-xl font-normal">{cart.length} items</p>
         )}
       </div>
 
-      <div className="flex gap-12">
+      <div className="flex flex-col lg:flex-row gap-12">
         <YourCart />
         <OrderSummary />
       </div>

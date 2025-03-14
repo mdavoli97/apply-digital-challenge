@@ -14,27 +14,34 @@ export default function GameCard({ game }: { game: IGames }) {
   const isItemInCart = cart.some((item) => item.id === game.id);
 
   return (
-    <div key={game.id} className="border rounded-xl p-5 flex gap-5 flex-col">
-      <div className="relative">
-        {game.isNew && (
-          <span className="absolute top-2 left-2 px-2 p-1 rounded-md text-sm bg-gray-100">
-            New
-          </span>
-        )}
-        <Image
-          src={game.image}
-          alt={game.name}
-          width={300}
-          height={300}
-          className="w-96 h-[240px] rounded-t-xl"
-        />
-      </div>
+    <div
+      key={game.id}
+      className="border border-gray-300 rounded-xl p-5 flex gap-5 justify-between flex-col max-w-[380px]"
+    >
+      <div className="space-y-3">
+        <div className="relative">
+          {game.isNew && (
+            <span className="absolute top-2 left-2 px-2 p-1 rounded-md text-sm bg-gray-100">
+              New
+            </span>
+          )}
+          <Image
+            src={game.image}
+            alt={game.name}
+            width={300}
+            height={300}
+            className="w-96 h-[240px] rounded-t-xl"
+          />
+        </div>
 
-      <p>{game.genre}</p>
+        <p className="uppercase text-gray-600 font-bold text-sm">
+          {game.genre}
+        </p>
 
-      <div className="flex justify-between">
-        <p>{game.name}</p>
-        <p>{game.price}</p>
+        <div className="flex justify-between">
+          <p className="font-bold">{game.name}</p>
+          <p className="font-bold">${game.price}</p>
+        </div>
       </div>
 
       <button

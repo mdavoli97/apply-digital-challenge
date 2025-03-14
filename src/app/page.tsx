@@ -14,7 +14,7 @@ export default async function Home({
   const gamesData = await fetchGames(selectedGenre, selectedPage);
 
   return (
-    <main className="container mx-auto flex flex-col p-3 md:p-0">
+    <main className="container mx-auto flex flex-col p-5 md:p-0">
       <CatalogHeader filters={gamesData.availableFilters} />
       {gamesData.games.length === 0 ? (
         <div className="flex justify-center">
@@ -22,7 +22,7 @@ export default async function Home({
         </div>
       ) : (
         <div className="my-6 md:my-12 max-w-7xl mx-auto flex flex-col gap-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {gamesData.games?.map((game) => (
               <GameCard key={game.id} game={game} />
             ))}

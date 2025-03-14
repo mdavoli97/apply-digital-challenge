@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function NavBar() {
   return (
     <header className="bg-[#EEEEEE] h-16">
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-full">
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-full px-5 md:px-0">
         <Link href="/">
           <Image
             src="/gamer-shop-logo.svg"

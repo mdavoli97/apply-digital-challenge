@@ -15,7 +15,7 @@ export default function NavBar() {
           />
         </Link>
 
-        <Link href="/shopping-cart">
+        <Link href="/cart">
           <Image src="/cart-icon.svg" alt="Cart Icon" width={20} height={20} />
         </Link>
       </div>

@@ -10,7 +10,7 @@ export default function Page() {
   const { cart } = useCartStore();
 
   return (
-    <section className="flex flex-col max-w-7xl mx-auto gap-10 p-5 md:py-10">
+    <section className="flex flex-col max-w-7xl mx-auto gap-10 p-5 md:py-10 w-full min-h-screen">
       <Link href="/" className="flex items-center gap-3">
         <Image
           src="/arrow-left-icon.svg"

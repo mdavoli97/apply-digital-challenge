@@ -14,7 +14,7 @@ export default function OrderSummary() {
         <div className="space-y-3 mt-10">
           {cart.map((game) => (
             <div key={game.id} className="flex justify-between">
-              <p>{game.name}</p>
+              <p className="max-w-44 sm:max-w-none truncate">{game.name}</p>
               <p>$ {game.price}</p>
             </div>
           ))}

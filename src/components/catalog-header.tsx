@@ -2,7 +2,15 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function CatalogHeader({ filters }: { filters: string[] }) {
+export default function CatalogHeader({
+  filters,
+  selectedGenre,
+  isLoading,
+}: {
+  filters: string[];
+  selectedGenre: string;
+  isLoading: boolean;
+}) {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
 
@@ -25,14 +33,22 @@ export default function CatalogHeader({ filters }: { filters: string[] }) {
       <div className="flex gap-5 md:self-end">
         <p className="font-bold">Genre</p>
         <div className="bg-gray-300 w-0.5" />
-        <select onChange={handleSelect}>
-          <option value="">All</option>
-          {filters.map((genre) => (
-            <option key={genre} value={genre}>
-              {genre}
-            </option>
-          ))}
-        </select>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <select
+            disabled={isLoading}
+            onChange={handleSelect}
+            value={selectedGenre}
+          >
+            <option value="all">All</option>
+            {filters?.map((genre) => (
+              <option key={genre} value={genre}>
+                {genre}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
     </div>
   );

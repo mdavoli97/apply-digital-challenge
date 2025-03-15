@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/nav-bar";
 import { cn } from "@/utils/utils";
 import Footer from "@/components/footer";
+import Providers from "./providers";
 
 const archivo = Archivo({ subsets: ["latin"] });
 
@@ -19,10 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(archivo.className)}>
-        <NavBar />
-        {children}
-        <Footer />
+      <body className={cn(archivo.className, "antialiased flex flex-col")}>
+        <Providers>
+          <NavBar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

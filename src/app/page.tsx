@@ -55,19 +55,26 @@ export default function Home({
           {gamesData && gamesData?.pages[0]?.games.length > 11 ? (
             <button
               className={cn(
-                "capitalize bg-[#585660] w-fit p-3 rounded-md text-white",
+                "uppercase bg-[#585660] text-sm w-fit p-4 px-5 rounded-md text-white",
                 {
                   hidden: !hasNextPage,
+                },
+                {
+                  "bg-transparent text-black": isFetchingNextPage,
                 }
               )}
               onClick={() => fetchNextPage()}
               disabled={!hasNextPage || isFetchingNextPage}
             >
-              {isFetchingNextPage
-                ? "Loading more..."
-                : hasNextPage
-                ? "Load More"
-                : "Nothing more to load"}
+              {isFetchingNextPage ? (
+                <div className="flex gap-2">
+                  <Spinner /> Loading more...
+                </div>
+              ) : hasNextPage ? (
+                "See More"
+              ) : (
+                "Nothing more to load"
+              )}
             </button>
           ) : null}
         </div>

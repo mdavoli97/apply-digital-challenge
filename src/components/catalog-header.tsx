@@ -30,7 +30,7 @@ export default function CatalogHeader({
       <h1 className="font-bold text-2xl text-gray-700 uppercase md:normal-case md:text-4xl">
         Top Sellers
       </h1>
-      <div className="flex gap-5 md:self-end">
+      <div className="flex gap-7 md:self-end text-lg">
         <p className="font-bold">Genre</p>
         <div className="bg-gray-300 w-0.5" />
         {isLoading ? (

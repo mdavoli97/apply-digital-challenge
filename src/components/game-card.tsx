@@ -2,6 +2,7 @@
 
 import { useCartStore } from "@/store/useCartStore";
 import { IGames } from "@/types/game";
+import { cn } from "@/utils/utils";
 import Image from "next/image";
 
 export default function GameCard({ game }: { game: IGames }) {
@@ -16,12 +17,12 @@ export default function GameCard({ game }: { game: IGames }) {
   return (
     <div
       key={game.id}
-      className="border border-gray-300 rounded-xl p-5 flex gap-5 justify-between flex-col max-w-[380px]"
+      className="border border-gray-300 rounded-2xl p-6 flex gap-5 justify-between flex-col max-w-[380px]"
     >
       <div className="space-y-3">
         <div className="relative">
           {game.isNew && (
-            <span className="absolute top-2 left-2 px-2 p-1 rounded-md text-sm bg-gray-100">
+            <span className="absolute top-3 left-3 px-3 p-1.5 rounded-md bg-gray-100">
               New
             </span>
           )}
@@ -30,22 +31,27 @@ export default function GameCard({ game }: { game: IGames }) {
             alt={game.name}
             width={300}
             height={300}
-            className="w-96 h-[240px] rounded-t-xl"
+            className="w-96 h-[240px] rounded-t-2xl"
           />
         </div>
 
-        <p className="uppercase text-gray-600 font-bold text-sm">
+        <p className="uppercase text-gray-500 font-bold text-base">
           {game.genre}
         </p>
 
         <div className="flex justify-between">
-          <p className="font-bold">{game.name}</p>
-          <p className="font-bold">${game.price}</p>
+          <p className="font-bold text-lg">{game.name}</p>
+          <p className="font-bold text-lg">${game.price}</p>
         </div>
       </div>
 
       <button
-        className="border py-4 border-black rounded-lg uppercase text-sm font-bold"
+        className={cn(
+          "border py-4 border-black rounded-lg uppercase text-sm font-bold",
+          {
+            "bg-gray-100": isItemInCart,
+          }
+        )}
         onClick={handleAddToCart}
       >
         {isItemInCart ? "Remove" : "Add to cart "}

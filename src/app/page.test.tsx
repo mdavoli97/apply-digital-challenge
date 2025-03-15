@@ -4,13 +4,25 @@ import "@testing-library/jest-dom";
 import Home from "./page";
 import { IGames } from "@/types/game";
 
-jest.mock("../components/catalog-header", () => () => (
-  <div data-testid="catalog-header" />
-));
-jest.mock("../components/game-card", () => ({ game }: { game: IGames }) => (
-  <div data-testid="game-card">{game.name}</div>
-));
-jest.mock("../components/spinner", () => () => <div data-testid="spinner" />);
+jest.mock("../components/catalog-header", () => {
+  const MockCatalogHeader = () => <div data-testid="catalog-header" />;
+  MockCatalogHeader.displayName = "MockCatalogHeader";
+  return MockCatalogHeader;
+});
+
+jest.mock("../components/game-card", () => {
+  const MockGameCard = ({ game }: { game: IGames }) => (
+    <div data-testid="game-card">{game.name}</div>
+  );
+  MockGameCard.displayName = "MockGameCard";
+  return MockGameCard;
+});
+
+jest.mock("../components/spinner", () => {
+  const MockSpinner = () => <div data-testid="spinner" />;
+  MockSpinner.displayName = "MockSpinner";
+  return MockSpinner;
+});
 
 jest.mock("../services/fetchGames", () => ({
   useFetchGames: jest.fn(),

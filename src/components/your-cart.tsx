@@ -12,7 +12,7 @@ export default function YourCart() {
           key={game.id}
           className="bp-5 flex flex-col sm:flex-row gap-5 py-5 px-3"
         >
-          <div className="relative flex gap-5">
+          <div className="relative flex gap-5 justify-between">
             {game.isNew && (
               <span className="absolute top-2 left-2 px-2 p-1 rounded-md text-sm bg-gray-100">
                 New
@@ -23,7 +23,7 @@ export default function YourCart() {
               alt={game.name}
               width={256}
               height={156}
-              className="min-w-64 h-[156px] w-full"
+              className="min-w-64 h-[9.75rem] w-full max-w-64 object-cover"
               priority
             />
             <Image
@@ -36,7 +36,7 @@ export default function YourCart() {
             />
           </div>
 
-          <div className="flex flex-col w-full justify-between md:min-w-[350px]">
+          <div className="flex flex-col w-full justify-between md:min-w-[21.875rem]">
             <div className="flex flex-col gap-2">
               <p className="uppercase text-gray-600 font-bold text-sm">
                 {game.genre}

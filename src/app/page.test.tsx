@@ -77,7 +77,7 @@ describe("Home Page", () => {
     expect(screen.getByText("Game Two")).toBeInTheDocument();
   });
 
-  it("disables 'Load More' button when there are no more pages", () => {
+  it("disables 'see more' button when there are no more pages", () => {
     (useFetchGames as jest.Mock).mockReturnValue({
       data: {
         pages: [
@@ -96,11 +96,11 @@ describe("Home Page", () => {
     render(<Home searchParams={{}} />);
 
     expect(
-      screen.queryByRole("button", { name: /load more/i })
+      screen.queryByRole("button", { name: /see more/i })
     ).not.toBeInTheDocument();
   });
 
-  it("calls fetchNextPage when 'Load More' button is clicked", () => {
+  it("calls fetchNextPage when 'see more' button is clicked", () => {
     const fetchNextPageMock = jest.fn();
 
     (useFetchGames as jest.Mock).mockReturnValue({
@@ -123,7 +123,7 @@ describe("Home Page", () => {
 
     render(<Home searchParams={{}} />);
 
-    const loadMoreButton = screen.getByRole("button", { name: /load more/i });
+    const loadMoreButton = screen.getByRole("button", { name: /see more/i });
     expect(loadMoreButton).toBeInTheDocument();
 
     fireEvent.click(loadMoreButton);

@@ -18,7 +18,6 @@ export default function CatalogHeader({
     const params = new URLSearchParams(searchParams);
     if (event.target.value) {
       params.set("genre", event.target.value);
-      params.delete("page");
     } else {
       params.delete("genre");
     }

@@ -17,7 +17,7 @@ export default function GameCard({ game }: { game: IGames }) {
   return (
     <div
       key={game.id}
-      className="border border-gray-300 rounded-2xl p-6 flex gap-5 justify-between flex-col max-w-[380px]"
+      className="border border-gray-300 rounded-2xl p-6 flex gap-5 justify-between flex-col max-w-[23.75rem]"
     >
       <div className="space-y-3">
         <div className="relative">
@@ -31,7 +31,7 @@ export default function GameCard({ game }: { game: IGames }) {
             alt={game.name}
             width={300}
             height={300}
-            className="w-96 h-[240px] rounded-t-2xl"
+            className="w-96 h-60 rounded-t-2xl"
           />
         </div>
 

@@ -11,7 +11,7 @@ export default function NavBar() {
             alt="Apply Digital"
             width={200}
             height={50}
-            className="w-[150px] h-6"
+            className="w-[9.375rem] h-6"
           />
         </Link>
 

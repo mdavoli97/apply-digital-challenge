@@ -2,9 +2,10 @@
 
 import CatalogHeader from "@/components/catalog-header";
 import GameCard from "@/components/game-card";
+import SeeMoreButton from "@/components/see-more-button";
 import Spinner from "@/components/spinner";
 import { useFetchGames } from "@/services/fetchGames";
-import { cn } from "@/utils/utils";
+import { ITEMS_PER_PAGE } from "@/utils/constants";
 import { Fragment } from "react";
 
 export default function Home({
@@ -52,30 +53,12 @@ export default function Home({
             </div>
           )}
 
-          {gamesData && gamesData?.pages[0]?.games.length > 11 ? (
-            <button
-              className={cn(
-                "uppercase bg-[#585660] text-sm w-fit p-4 px-5 rounded-md text-white",
-                {
-                  hidden: !hasNextPage,
-                },
-                {
-                  "bg-transparent text-black": isFetchingNextPage,
-                }
-              )}
-              onClick={() => fetchNextPage()}
-              disabled={!hasNextPage || isFetchingNextPage}
-            >
-              {isFetchingNextPage ? (
-                <div className="flex gap-2">
-                  <Spinner /> Loading more...
-                </div>
-              ) : hasNextPage ? (
-                "See More"
-              ) : (
-                "Nothing more to load"
-              )}
-            </button>
+          {gamesData && gamesData?.pages[0]?.games.length >= ITEMS_PER_PAGE ? (
+            <SeeMoreButton
+              fetchNextPage={fetchNextPage}
+              hasNextPage={hasNextPage}
+              isFetchingNextPage={isFetchingNextPage}
+            />
           ) : null}
         </div>
       )}

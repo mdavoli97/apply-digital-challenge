@@ -2,6 +2,7 @@
 
 import OrderSummary from "@/components/order-summary";
 import YourCart from "@/components/your-cart";
+import { ROUTES } from "@/config/routes";
 import { useCartStore } from "@/store/useCartStore";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export default function Page() {
 
   return (
     <section className="flex flex-col max-w-7xl mx-auto gap-10 p-5 md:py-10 w-full min-h-screen">
-      <Link href="/" className="flex items-center gap-3">
+      <Link href={ROUTES.home} className="flex items-center gap-3">
         <Image
           src="/arrow-left-icon.svg"
           alt="Apply Digital"

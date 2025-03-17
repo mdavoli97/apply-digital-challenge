@@ -1,3 +1,4 @@
+import { ROUTES } from "@/config/routes";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -5,7 +6,7 @@ export default function NavBar() {
   return (
     <header className="bg-[#EEEEEE] h-16">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-full px-5 md:px-0">
-        <Link href="/">
+        <Link href={ROUTES.home}>
           <Image
             src="/gamer-shop-logo.svg"
             alt="Apply Digital"
@@ -15,7 +16,7 @@ export default function NavBar() {
           />
         </Link>
 
-        <Link href="/cart">
+        <Link href={ROUTES.cart}>
           <Image src="/cart-icon.svg" alt="Cart Icon" width={20} height={20} />
         </Link>
       </div>
